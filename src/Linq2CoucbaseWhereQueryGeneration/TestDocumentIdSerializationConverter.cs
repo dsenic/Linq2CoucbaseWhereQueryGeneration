@@ -36,7 +36,9 @@ namespace Linq2CoucbaseWhereQueryGeneration
 
         protected override void RenderConvertedConstant( ConstantExpression constantExpression, IN1QlExpressionTreeVisitor expressionTreeVisitor )
         {
+            expressionTreeVisitor.Expression.Append( "'" );
             expressionTreeVisitor.Visit( constantExpression );
+            expressionTreeVisitor.Expression.Append( "'" );
         }
 
         protected override void RenderConvertFromMethod( Expression innerExpression, IN1QlExpressionTreeVisitor expressionTreeVisitor )
